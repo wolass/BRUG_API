@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Analysis\n\n```{r}\n# install.packages(\"googlesheets\")\nlibrary(googlesheets)\ndat <-gs_title('BRUG_API')\ndatas <- gs_read(ss = dat, ws= 1)\nnames(datas) <- c(\"time\",\"gName\",\"expected\",\"upperCI\",\"lowerCI\")\nrequire(ggplot2)\nggplot(datas,aes(gName,expected))+\n  geom_point()+\n  geom_segment(aes(x=gName,xend=gName,y=upperCI,yend=lowerCI))\n\n```",
+    "created" : 1490787913134.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1498335707",
+    "id" : "61F6A66D",
+    "lastKnownWriteTime" : 1490789479,
+    "last_content_update" : 1490789479687,
+    "path" : "~/Documents/BRUG_API/analysis.Rmd",
+    "project_path" : "analysis.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "install.packages(c(\"jsonlite\",\"httr\"))\nlibrary(httr)\nlibrary(jsonlite)\n# options(stringsAsFactors = FALSE)\n\nurl  <- \"https://api.meetup.com\"\n\ngroup_urlname <- \"Berlin-R-Users-Group\"\nsource(\"secret.R\")\nmethod <- \"/2/members\"\n\npath <- paste0(method,\n               \"?key=\",\n               token,\n               \"&sign=true\",\n               \"&group_urlname=\",\n               group_urlname)\n\n\nraw.result <- GET(url = url, path = path)\n\nnames(raw.result)\n\nraw.result$status_code\n\nhead(raw.result$content)\n\nthis.raw.content <- rawToChar(raw.result$content)\n\nthis.content <- fromJSON(this.raw.content)\n\nthis.content$results$country\n\n### The alternative (easy) way!\ndevtools::install_github(\"rladies/meetupr\")\nlibrary(meetupr)\n\nmembers <- get_members(group_urlname, token)\n",
+    "created" : 1490788250625.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2554260753",
+    "id" : "87932C00",
+    "lastKnownWriteTime" : 1490788315,
+    "last_content_update" : 1490788315414,
+    "path" : "~/Documents/BRUG_API/script.R",
+    "project_path" : "script.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

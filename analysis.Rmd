@@ -1,0 +1,14 @@
+# Analysis
+
+```{r}
+# install.packages("googlesheets")
+library(googlesheets)
+dat <-gs_title('BRUG_API')
+datas <- gs_read(ss = dat, ws= 1)
+names(datas) <- c("time","gName","expected","upperCI","lowerCI")
+require(ggplot2)
+ggplot(datas,aes(gName,expected))+
+  geom_point()+
+  geom_segment(aes(x=gName,xend=gName,y=upperCI,yend=lowerCI))
+
+```
