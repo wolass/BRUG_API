@@ -31,6 +31,8 @@ this.content <- fromJSON(this.raw.content)
 
 this.content$results$country
 
+this.content$results$name
+
 ### The alternative (easy) way!
 devtools::install_github("rladies/meetupr")
 library(meetupr)
